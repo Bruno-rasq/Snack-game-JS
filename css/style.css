@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+
+    --blue-color: #2B3499;
+    --bg-color: #FF6C22;
+    --canvas-bg-color: #FF9209;
+    --light-color: #FFD099;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--light-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+canvas{
+    background-color: var(--canvas-bg-color);
+
+    width: 400px;
+    height: 400px;
+}
