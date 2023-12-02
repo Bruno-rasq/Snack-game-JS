@@ -10,6 +10,7 @@
     --bg-color: #FF6C22;
     --canvas-bg-color: #FF9209;
     --light-color: #FFD099;
+    --light-color-hover: #dbb384;
 }
 
 body{
@@ -24,8 +25,67 @@ body{
 }
 
 canvas{
-    background-color: var(--canvas-bg-color);
+    background-color: #07070a;
 
     width: 400px;
     height: 400px;
+}
+
+.score{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.score--value{
+
+    font-weight: 700;
+    font-size: 4.5rem;
+    display: block;
+    margin-top: -10px;
+}
+
+.menu--screen{
+
+    z-index: 1;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game--over{
+
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.final-score{
+
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.btn--play{
+
+    border: none;
+    border-radius: 100px;
+    padding: 10px 15px 10px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+
+    background-color: var(--light-color);
+    color: var(--blue-color);
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.btn--play:hover{
+    background-color: var(--light-color-hover);
 }
