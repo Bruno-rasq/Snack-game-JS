@@ -42,6 +42,7 @@ const food = {
 }
 
 let direction, loopId
+let speed = 300
 
 
 const IncrementScore = () => {
@@ -143,6 +144,7 @@ const checkEat = () => {
         food.x = x
         food.y = y
         food.color = randonColor()
+        speed -= 10
     }
 
 }
@@ -171,6 +173,8 @@ const gameOver = () => {
     menu.style.display = 'flex'
     finalScore.innerHTML = score.innerHTML
     canvas.style.filter = 'blur(4px)'
+
+    speed = 300
 }
 
 const gameLoop = () => {
@@ -188,7 +192,7 @@ const gameLoop = () => {
 
     loopId = setInterval(() => {
         gameLoop()
-    }, 300)
+    }, speed)
 }
 
 gameLoop()
