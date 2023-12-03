@@ -7,8 +7,8 @@
 :root{
 
     --blue-color: #2B3499;
-    --bg-color: #FF6C22;
-    --canvas-bg-color: #FF9209;
+    --bg-color: #8715aa;
+    --canvas-bg-color: #302b25;
     --light-color: #FFD099;
     --light-color-hover: #dbb384;
     --snack-color: #2bd36b;
@@ -16,7 +16,7 @@
 }
 
 body{
-    background-color: var(--bg-color);
+    background-image: linear-gradient(to bottom, var(--bg-color), var(--light-color));
     color: var(--light-color);
 
     display: flex;
@@ -80,7 +80,7 @@ canvas{
     font-weight: 600;
 
     background-color: var(--light-color);
-    color: var(--blue-color);
+    color: #0f0f0f;
     display: flex;
     align-items: center;
     margin-top: 40px;
@@ -89,5 +89,6 @@ canvas{
 }
 
 .btn--play:hover{
+
     background-color: var(--light-color-hover);
 }

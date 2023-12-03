@@ -50,14 +50,14 @@ const IncrementScore = () => {
 }
 
 const drawSnack = () => {
-    ctx.fillStyle = '#2bd36b'
+    ctx.fillStyle = '#23a354'
 
     // ctx.fillRect(snack[0].x, snack[0].y, size, size)
     snack.forEach((position, index) => {
 
         //distinguindo a cor da cabeça
         if(index === snack.length - 1){
-            ctx.fillStyle = '#23a354'
+            ctx.fillStyle = '#2bd36b'
         }
 
         ctx.fillRect(position.x, position.y, size, size)
@@ -92,7 +92,7 @@ const moveSnack = () => {
 const drawGrid = () => {
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = '#FF9209'
+    ctx.strokeStyle = '#302b25'
 
     for(let i = 30; i < canvas.width; i += 30){
 
