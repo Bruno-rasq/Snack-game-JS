@@ -42,7 +42,7 @@ const food = {
 }
 
 let direction, loopId
-let speed = 300
+let speed = 300, initial_score = 0
 
 
 const IncrementScore = () => {
@@ -50,14 +50,14 @@ const IncrementScore = () => {
 }
 
 const drawSnack = () => {
-    ctx.fillStyle = '#2B3499'
+    ctx.fillStyle = '#2bd36b'
 
     // ctx.fillRect(snack[0].x, snack[0].y, size, size)
     snack.forEach((position, index) => {
 
         //distinguindo a cor da cabeça
         if(index === snack.length - 1){
-            ctx.fillStyle = '#4d59da'
+            ctx.fillStyle = '#23a354'
         }
 
         ctx.fillRect(position.x, position.y, size, size)
@@ -92,7 +92,7 @@ const moveSnack = () => {
 const drawGrid = () => {
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = '#ffc27d'
+    ctx.strokeStyle = '#FF9209'
 
     for(let i = 30; i < canvas.width; i += 30){
 
@@ -122,6 +122,13 @@ const drawFood = () => {
     ctx.shadowBlur = 0
 }
 
+const moreSpeed = () => {
+
+    if (speed >= 100){
+        speed -= 10
+    }
+}
+
 const checkEat = () => {
 
     const head = snack[snack.length - 1] 
@@ -129,6 +136,7 @@ const checkEat = () => {
     if(head.x == food.x && head.y == food.y){
         
         IncrementScore()
+        moreSpeed()
         song.play()
         snack.push(head)
 
@@ -144,7 +152,6 @@ const checkEat = () => {
         food.x = x
         food.y = y
         food.color = randonColor()
-        speed -= 10
     }
 
 }
@@ -166,15 +173,29 @@ const checkCollision = () => {
     }
 }
 
+const highScore = (currentScore) => {
+
+    let highScore = +localStorage.getItem('highscore');
+    let score = +currentScore
+
+    if(highScore < score){
+        localStorage.setItem('highscore', score)
+    }
+}
+
 const gameOver = () => {
 
     direction = undefined
-
+    
     menu.style.display = 'flex'
-    finalScore.innerHTML = score.innerHTML
     canvas.style.filter = 'blur(4px)'
 
     speed = 300
+
+    highScore(score.innerHTML)
+
+    let high_score = localStorage.getItem('highscore')
+    finalScore.innerHTML = high_score
 }
 
 const gameLoop = () => {
@@ -224,4 +245,13 @@ btn_play.addEventListener('click', () => {
     canvas.style.filter = 'none'
 
     snack = [initialPosition]
+})
+
+window.addEventListener('load', () => {
+
+    let high_score = localStorage.getItem('highscore')
+
+    if(!high_score){
+        localStorage.setItem('highscore', initial_score)
+    }
 })
